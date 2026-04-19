@@ -15,9 +15,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Order Management System
 
-- [ ] **ORD-01**: Capture and record all orders from website or WhatsApp
+- [ ] **ORD-01**: Capture and record all orders from website or manual entry
 - [ ] **ORD-02**: Easy order creation, assignment, and real-time tracking
 - [ ] **ORD-03**: Clear order status: Pending → Confirmed → Delivered → Paid
+- [ ] **ORD-04**: Parse pasted order text to auto-populate items and quantities
 
 ### Automatic Invoice & Waybill Generation
 
@@ -67,20 +68,20 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| WEB-01 | Phase 1 | Pending |
-| WEB-02 | Phase 1 | Pending |
-| WEB-03 | Phase 1 | Pending |
-| ORD-01 | Phase 2 | Pending |
-| ORD-02 | Phase 2 | Pending |
-| ORD-03 | Phase 2 | Pending |
-| INV-01 | Phase 3 | Pending |
-| INV-02 | Phase 3 | Pending |
-| INV-03 | Phase 3 | Pending |
-| INV-04 | Phase 1 | Pending |
-| INV-05 | Phase 1 | Pending |
-| INV-06 | Phase 1 | Pending |
-| PAY-01 | Phase 4 | Pending |
-| PAY-02 | Phase 4 | Pending |
+| WEB-01 | Phase 2: Business Website | Pending |
+| WEB-02 | Phase 2: Business Website | Pending |
+| WEB-03 | Phase 2: Business Website | Pending |
+| ORD-01 | Phase 3: Order Management | Pending |
+| ORD-02 | Phase 3: Order Management | Pending |
+| ORD-03 | Phase 3: Order Management | Pending |
+| INV-01 | Phase 4: Invoicing | INV-01 | Phase 3 | Pending | Payments | Pending |
+| INV-02 | Phase 4: Invoicing | INV-02 | Phase 3 | Pending | Payments | Pending |
+| INV-03 | Phase 4: Invoicing | INV-03 | Phase 3 | Pending | Payments | Pending |
+| INV-04 | Phase 1: Inventory Tracking | Pending |
+| INV-05 | Phase 1: Inventory Tracking | Pending |
+| INV-06 | Phase 1: Inventory Tracking | Pending |
+| PAY-01 | Phase 4: Invoicing | PAY-01 | Phase 4 | Pending | Payments | Pending |
+| PAY-02 | Phase 4: Invoicing | PAY-02 | Phase 4 | Pending | Payments | Pending |
 
 **Coverage:**
 - v1 requirements: 14 total
@@ -89,4 +90,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: April 19, 2026*
-*Last updated: April 19, 2026 after requirements definition*
+*Last updated: April 19, 2026 after roadmap creation*
