@@ -2,10 +2,11 @@
 
 ## Overview
 
-Build a complete digital inventory and order management system from scratch, starting with real-time inventory tracking, adding an e-commerce website with payment processing, implementing order management workflows, and finally automating invoicing and financial tracking.
+Build a complete digital inventory and order management system from scratch. Start with deployment infrastructure (Phase 0), then real-time inventory tracking, add an e-commerce website with payment processing, implement order management workflows, and finally automate invoicing and financial tracking.
 
 ## Phases
 
+- [ ] **Phase 0: Deployment Setup** - Establish Docker, Supabase, Vercel, and GitHub Actions for automated deployment
 - [ ] **Phase 1: Inventory Tracking** - Establish real-time inventory management foundation
 - [ ] **Phase 2: E-Commerce Website** - Launch customer-facing website with product catalog and Paystack payment integration
 - [ ] **Phase 3: Order Management** - Implement comprehensive order processing workflow for manual and web orders
@@ -13,20 +14,37 @@ Build a complete digital inventory and order management system from scratch, sta
 
 ## Phase Details
 
+### Phase 0: Deployment Setup
+**Goal**: Establish production-ready infrastructure for easy deployment and management
+**Depends on**: Nothing (foundational setup)
+**Requirements**: None (infrastructure only)
+**Success Criteria** (what must be TRUE):
+  1. Local development uses Docker with PostgreSQL 17 (matches production)
+  2. Database hosted on managed Supabase (zero ops burden)
+  3. Application deployed to Vercel (one-click deploys)
+  4. GitHub Actions runs tests automatically (blocks broken code)
+  5. Merging to main auto-deploys to production (zero manual steps)
+**Plans**: 3 plans in 2 waves
+
+Plans:
+- [ ] 00-01-PLAN.md — Docker setup for local development
+- [ ] 00-02-PLAN.md — Supabase + Vercel hosting integration
+- [ ] 00-03-PLAN.md — GitHub Actions CI/CD pipeline
+
 ### Phase 1: Inventory Tracking
 **Goal**: Users can track and manage inventory levels in real-time
-**Depends on**: Nothing (first phase)
+**Depends on**: Phase 0
 **Requirements**: INV-04, INV-05, INV-06
 **Success Criteria** (what must be TRUE):
   1. Admin can view current stock levels for all products in real-time
   2. Stock levels update automatically when orders are placed
   3. Admin can manually update stock when new goods arrive
-**Plans**: TBD
+**Plans**: 3 plans in 2 waves
 
 Plans:
-- [ ] 01-01: [Brief description of first plan]
-- [ ] 01-02: [Brief description of second plan]
-- [ ] 01-03: [Brief description of third plan]
+- [ ] 01-01-PLAN.md — Database schema with Prisma and PostgreSQL initialization
+- [ ] 01-02-PLAN.md — Inventory API endpoints with atomic transactions
+- [ ] 01-03-PLAN.md — Admin dashboard UI for real-time viewing and manual updates
 
 ### Phase 2: E-Commerce Website
 **Goal**: Customers can discover products, place orders online, and pay securely via Paystack
@@ -83,15 +101,16 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
+Phases execute in numeric order: 0 → 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Inventory Tracking | 0/TBD | Not started | - |
-| 2. E-Commerce Website | 0/TBD | Not started | - |
-| 3. Order Management | 0/TBD | Not started | - |
-| 4. Invoicing & Payments | 0/TBD | Not started | - |
+| 0. Deployment Setup | 0/3 | Planned | - |
+| 1. Inventory Tracking | 0/3 | Planned | - |
+| 2. E-Commerce Website | 0/4 | Not started | - |
+| 3. Order Management | 0/3 | Not started | - |
+| 4. Invoicing & Payments | 0/3 | Not started | - |
 
 ---
 *Roadmap created: April 19, 2026*
-*Last updated: April 19, 2026 after requirements refinement*
+*Last updated: April 19, 2026 after adding Phase 0 (Deployment Setup)*
