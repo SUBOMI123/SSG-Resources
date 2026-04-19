@@ -2,13 +2,13 @@
 
 ## Overview
 
-Journey from inventory foundation through website launch, order processing, to automated documentation and payment tracking — delivering a complete digital system that streamlines operations and improves accuracy.
+Build a complete digital inventory and order management system from scratch, starting with real-time inventory tracking, adding an e-commerce website with payment processing, implementing order management workflows, and finally automating invoicing and financial tracking.
 
 ## Phases
 
 - [ ] **Phase 1: Inventory Tracking** - Establish real-time inventory management foundation
-- [ ] **Phase 2: Business Website** - Launch online presence with product display and ordering
-- [ ] **Phase 3: Order Management** - Implement comprehensive order processing workflow
+- [ ] **Phase 2: E-Commerce Website** - Launch customer-facing website with product catalog and Paystack payment integration
+- [ ] **Phase 3: Order Management** - Implement comprehensive order processing workflow for manual and web orders
 - [ ] **Phase 4: Invoicing & Payments** - Automate document generation and financial tracking
 
 ## Phase Details
@@ -20,29 +20,48 @@ Journey from inventory foundation through website launch, order processing, to a
 **Success Criteria** (what must be TRUE):
   1. Admin can view current stock levels for all products in real-time
   2. Stock levels update automatically when orders are placed
-  3. Admin can manually update stock levels when new goods arrive
+  3. Admin can manually update stock when new goods arrive
 **Plans**: TBD
 
-### Phase 2: Business Website
-**Goal**: Customers can discover products and place orders online
+Plans:
+- [ ] 01-01: [Brief description of first plan]
+- [ ] 01-02: [Brief description of second plan]
+- [ ] 01-03: [Brief description of third plan]
+
+### Phase 2: E-Commerce Website
+**Goal**: Customers can discover products, place orders online, and pay securely via Paystack
 **Depends on**: Phase 1
-**Requirements**: WEB-01, WEB-02, WEB-03
+**Requirements**: WEB-01, WEB-02, WEB-03, WEB-04, WEB-05, WEB-06
 **Success Criteria** (what must be TRUE):
-  1. Customers can browse and view all available products on a clean website
-  2. Customers can place orders directly through the website
-  3. Customers can initiate contact with the business via WhatsApp Business
+  1. Customers can browse and view all available products with descriptions and pricing
+  2. Customers can place orders with product selection and quantity specification
+  3. Orders can be paid securely using Paystack payment gateway
+  4. Order confirmation and receipt are sent after successful payment
+  5. Customers can track order status (Pending → Confirmed → Delivered)
+  6. Website displays business information and professional appearance
 **Plans**: TBD
-**UI hint**: yes
+
+Plans:
+- [ ] 02-01: [Product catalog and browse experience]
+- [ ] 02-02: [Shopping cart and order placement]
+- [ ] 02-03: [Paystack payment integration]
+- [ ] 02-04: [Order confirmation and customer tracking]
 
 ### Phase 3: Order Management
 **Goal**: Business can capture and manage orders from creation to fulfillment
 **Depends on**: Phase 2
-**Requirements**: ORD-01, ORD-02, ORD-03
+**Requirements**: ORD-01, ORD-02, ORD-03, ORD-04
 **Success Criteria** (what must be TRUE):
-  1. All orders from website or WhatsApp are captured and recorded in the system
+  1. All orders from website or manual entry are captured and recorded
   2. Orders can be easily created, assigned, and tracked in real-time
   3. Order status progresses clearly from Pending → Confirmed → Delivered → Paid
+  4. Admin can paste raw order text which is parsed to auto-populate items and quantities
 **Plans**: TBD
+
+Plans:
+- [ ] 03-01: [Manual order entry with text parsing]
+- [ ] 03-02: [Order tracking and status management]
+- [ ] 03-03: [Order assignment and fulfillment workflow]
 
 ### Phase 4: Invoicing & Payments
 **Goal**: Generate documents automatically and track financial status
@@ -56,12 +75,23 @@ Journey from inventory foundation through website launch, order processing, to a
   5. Business can view total sales, collected payments, and outstanding balances
 **Plans**: TBD
 
+Plans:
+- [ ] 04-01: [Invoice and waybill generation]
+- [ ] 04-02: [Payment tracking and reconciliation]
+- [ ] 04-03: [Financial reporting and dashboards]
+
 ## Progress
+
+**Execution Order:**
+Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Inventory Tracking | 0/0 | Not started | - |
-| 2. Business Website | 0/0 | Not started | - |
-| 3. Order Management | 0/0 | Not started | - |
-| 4. Invoicing & Payments | 0/0 | Not started | - |</content>
-<parameter name="filePath">/Users/subomi/Desktop/SSG-Resources/.planning/ROADMAP.md
+| 1. Inventory Tracking | 0/TBD | Not started | - |
+| 2. E-Commerce Website | 0/TBD | Not started | - |
+| 3. Order Management | 0/TBD | Not started | - |
+| 4. Invoicing & Payments | 0/TBD | Not started | - |
+
+---
+*Roadmap created: April 19, 2026*
+*Last updated: April 19, 2026 after requirements refinement*

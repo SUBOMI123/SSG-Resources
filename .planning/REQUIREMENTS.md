@@ -9,9 +9,12 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Business Website
 
-- [ ] **WEB-01**: Clean website showcasing products and business
-- [ ] **WEB-02**: Customers can view items and place orders
-- [ ] **WEB-03**: Customers can contact via WhatsApp Business
+- [ ] **WEB-01**: Clean website showcasing products and business information
+- [ ] **WEB-02**: Customers can browse and view all available products with descriptions and pricing
+- [ ] **WEB-03**: Customer portal to place orders with product selection and quantity specification
+- [ ] **WEB-04**: Paystack payment integration for secure order payment processing
+- [ ] **WEB-05**: Order confirmation and receipt after successful payment
+- [ ] **WEB-06**: Customers can track order status (Pending → Confirmed → Delivered)
 
 ### Order Management System
 
@@ -71,23 +74,27 @@ Which phases cover which requirements. Updated during roadmap creation.
 | WEB-01 | Phase 2: Business Website | Pending |
 | WEB-02 | Phase 2: Business Website | Pending |
 | WEB-03 | Phase 2: Business Website | Pending |
+| WEB-04 | Phase 2: Business Website | Pending |
+| WEB-05 | Phase 2: Business Website | Pending |
+| WEB-06 | Phase 2: Business Website | Pending |
 | ORD-01 | Phase 3: Order Management | Pending |
 | ORD-02 | Phase 3: Order Management | Pending |
 | ORD-03 | Phase 3: Order Management | Pending |
-| INV-01 | Phase 4: Invoicing | INV-01 | Phase 3 | Pending | Payments | Pending |
-| INV-02 | Phase 4: Invoicing | INV-02 | Phase 3 | Pending | Payments | Pending |
-| INV-03 | Phase 4: Invoicing | INV-03 | Phase 3 | Pending | Payments | Pending |
+| ORD-04 | Phase 3: Order Management | Pending |
+| INV-01 | Phase 4: Invoicing & Payments | Pending |
+| INV-02 | Phase 4: Invoicing & Payments | Pending |
+| INV-03 | Phase 4: Invoicing & Payments | Pending |
 | INV-04 | Phase 1: Inventory Tracking | Pending |
 | INV-05 | Phase 1: Inventory Tracking | Pending |
 | INV-06 | Phase 1: Inventory Tracking | Pending |
-| PAY-01 | Phase 4: Invoicing | PAY-01 | Phase 4 | Pending | Payments | Pending |
-| PAY-02 | Phase 4: Invoicing | PAY-02 | Phase 4 | Pending | Payments | Pending |
+| PAY-01 | Phase 4: Invoicing & Payments | Pending |
+| PAY-02 | Phase 4: Invoicing & Payments | Pending |
 
 **Coverage:**
-- v1 requirements: 14 total
-- Mapped to phases: 14
+- v1 requirements: 18 total
+- Mapped to phases: 18
 - Unmapped: 0
 
 ---
 *Requirements defined: April 19, 2026*
-*Last updated: April 19, 2026 after roadmap creation*
+*Last updated: April 19, 2026 after requirements refinement*
