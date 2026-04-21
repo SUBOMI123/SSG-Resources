@@ -31,6 +31,9 @@ export default async function AdminPaymentDetailPage({ params }: PaymentDetailPa
     notFound();
   }
 
+  type OrderItemRow = (typeof order.items)[number];
+  type PaymentRow = (typeof order.payments)[number];
+
   return (
     <>
       <AdminPageHeader
@@ -80,7 +83,7 @@ export default async function AdminPaymentDetailPage({ params }: PaymentDetailPa
                 </div>
               </div>
             ) : (
-              order.payments.map((payment) => (
+              order.payments.map((payment: PaymentRow) => (
                 <div key={payment.id} className="admin-list-row static">
                   <div>
                     <strong>₦{payment.amount.toLocaleString()}</strong>
@@ -118,7 +121,7 @@ export default async function AdminPaymentDetailPage({ params }: PaymentDetailPa
               total: order.total,
               amount_paid: order.amount_paid,
               balance_due: order.balance_due,
-              items: order.items.map((item) => ({
+              items: order.items.map((item: OrderItemRow) => ({
                 product_id: item.product_id ?? "",
                 product_name: item.product_name,
                 product_sku: item.product_sku,
@@ -127,7 +130,7 @@ export default async function AdminPaymentDetailPage({ params }: PaymentDetailPa
                 quantity: item.quantity,
                 line_total: item.line_total,
               })),
-              payments: order.payments.map((payment) => ({
+              payments: order.payments.map((payment: PaymentRow) => ({
                 id: payment.id,
                 amount: payment.amount,
                 note: payment.note,

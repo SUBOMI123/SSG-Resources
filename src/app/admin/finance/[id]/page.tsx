@@ -29,6 +29,8 @@ export default async function AdminFinanceDetailPage({ params }: FinanceDetailPa
     notFound();
   }
 
+  type PaymentRow = (typeof order.payments)[number];
+
   return (
     <>
       <AdminPageHeader
@@ -104,7 +106,7 @@ export default async function AdminFinanceDetailPage({ params }: FinanceDetailPa
                 </div>
               </div>
             ) : (
-              order.payments.map((payment) => (
+              order.payments.map((payment: PaymentRow) => (
                 <div key={payment.id} className="admin-list-row static">
                   <div>
                     <strong>₦{payment.amount.toLocaleString()}</strong>
