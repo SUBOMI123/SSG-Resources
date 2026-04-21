@@ -28,6 +28,7 @@ export default async function AdminInventoryDetailPage({ params }: InventoryDeta
     orderBy: [{ created_at: "desc" }],
     take: 8,
   });
+  type HistoryEntry = (typeof history)[number];
 
   return (
     <>
@@ -90,7 +91,7 @@ export default async function AdminInventoryDetailPage({ params }: InventoryDeta
             </div>
           </div>
           <div className="admin-list-rows">
-            {history.map((entry) => (
+            {history.map((entry: HistoryEntry) => (
               <div key={entry.id} className="admin-list-row static">
                 <div>
                   <strong>{entry.change_reason.replace(/_/g, " ")}</strong>

@@ -22,6 +22,7 @@ export default async function AdminInventoryListPage({ searchParams }: Inventory
         [item.name, item.sku, item.slug, item.description ?? ""].join(" ").toLowerCase().includes(query),
       )
     : items;
+  type InventoryRow = (typeof filteredItems)[number];
 
   return (
     <>
@@ -70,7 +71,7 @@ export default async function AdminInventoryListPage({ searchParams }: Inventory
                 </tr>
               </thead>
               <tbody>
-                {filteredItems.map((item) => (
+                {filteredItems.map((item: InventoryRow) => (
                   <tr key={item.id}>
                     <td>
                       <Link href={`/admin/inventory/${item.id}`} className="admin-table-link">

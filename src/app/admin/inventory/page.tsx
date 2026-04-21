@@ -33,6 +33,9 @@ export default async function AdminInventoryPage() {
   const totalOnHand = items.reduce((sum, item) => sum + item.quantity_on_hand, 0);
   const totalAvailable = items.reduce((sum, item) => sum + item.available, 0);
   const totalValue = items.reduce((sum, item) => sum + item.unit_price * item.quantity_on_hand, 0);
+  type InventoryRow = (typeof items)[number];
+  type LowStockRow = (typeof lowStockItems)[number];
+  type MovementRow = (typeof recentMovements)[number];
 
   return (
     <>
@@ -78,7 +81,7 @@ export default async function AdminInventoryPage() {
                 </div>
               </div>
             ) : (
-              lowStockItems.map((item) => (
+              lowStockItems.map((item: LowStockRow) => (
                 <Link key={item.id} href={`/admin/inventory/${item.id}`} className="admin-list-row">
                   <div>
                     <strong>{item.name}</strong>
@@ -102,7 +105,7 @@ export default async function AdminInventoryPage() {
             </div>
           </div>
           <div className="admin-list-rows">
-            {recentMovements.map((entry) => (
+            {recentMovements.map((entry: MovementRow) => (
               <Link key={entry.id} href={`/admin/inventory/${entry.product_id}`} className="admin-list-row">
                 <div>
                   <strong>{entry.product.name}</strong>
