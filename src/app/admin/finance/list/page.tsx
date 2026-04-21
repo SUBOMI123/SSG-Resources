@@ -17,8 +17,9 @@ export default async function AdminFinanceListPage({ searchParams }: FinanceList
   const params = (await searchParams) ?? {};
   const dashboard = await getFinancialDashboard(parsePaymentRange({ period: "all" }));
   const term = params.q?.trim().toLowerCase() ?? "";
+  type FinanceRow = (typeof dashboard.recent_orders)[number];
 
-  const rows = dashboard.recent_orders.filter((order) => {
+  const rows = dashboard.recent_orders.filter((order: FinanceRow) => {
     if (!term) {
       return true;
     }
@@ -73,7 +74,7 @@ export default async function AdminFinanceListPage({ searchParams }: FinanceList
                 </tr>
               </thead>
               <tbody>
-                {rows.map((order) => (
+                {rows.map((order: FinanceRow) => (
                   <tr key={order.id}>
                     <td>
                       <Link href={`/admin/finance/${order.id}`} className="admin-table-link">

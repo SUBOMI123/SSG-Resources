@@ -9,11 +9,11 @@ export const dynamic = "force-dynamic";
 
 export default async function AdminOrdersPage() {
   const orders = await listAdminOrders();
-  const waitingOrders = orders.filter((order) => order.payment_status !== "PAID");
-  const openOrders = orders.filter((order) => order.fulfillment_status !== "DELIVERED");
-  const confirmedOrders = orders.filter((order) => order.fulfillment_status === "CONFIRMED");
-  const waitingAmount = waitingOrders.reduce((sum, order) => sum + order.balance_due, 0);
-  const paidAmount = orders.reduce((sum, order) => sum + order.amount_paid, 0);
+  type AdminOrderRow = (typeof orders)[number];
+  const waitingOrders = orders.filter((order: AdminOrderRow) => order.payment_status !== "PAID");
+  const openOrders = orders.filter((order: AdminOrderRow) => order.fulfillment_status !== "DELIVERED");
+  const confirmedOrders = orders.filter((order: AdminOrderRow) => order.fulfillment_status === "CONFIRMED");
+  const waitingAmount = waitingOrders.reduce((sum, order: AdminOrderRow) => sum + order.balance_due, 0);
 
   return (
     <>
@@ -36,7 +36,6 @@ export default async function AdminOrdersPage() {
         <AdminMetricCard label="Open orders" value={String(openOrders.length)} tone="accent" />
         <AdminMetricCard label="Confirmed orders" value={String(confirmedOrders.length)} />
         <AdminMetricCard label="Balance still due" value={`₦${waitingAmount.toLocaleString()}`} tone="warning" />
-        <AdminMetricCard label="Money received" value={`₦${paidAmount.toLocaleString()}`} tone="success" />
       </section>
 
       <section className="admin-command-grid">
@@ -59,7 +58,7 @@ export default async function AdminOrdersPage() {
                 </div>
               </div>
             ) : (
-              waitingOrders.slice(0, 6).map((order) => (
+              waitingOrders.slice(0, 6).map((order: AdminOrderRow) => (
                 <Link key={order.id} href={`/admin/orders/${order.id}`} className="admin-list-row">
                   <div>
                     <strong>{order.customer_name}</strong>
@@ -86,7 +85,7 @@ export default async function AdminOrdersPage() {
             </Link>
           </div>
           <div className="admin-list-rows">
-            {orders.slice(0, 6).map((order) => (
+            {orders.slice(0, 6).map((order: AdminOrderRow) => (
               <Link key={order.id} href={`/admin/orders/${order.id}`} className="admin-list-row">
                 <div>
                   <strong>{order.reference}</strong>

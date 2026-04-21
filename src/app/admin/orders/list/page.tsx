@@ -19,12 +19,13 @@ export const dynamic = "force-dynamic";
 export default async function AdminOrdersListPage({ searchParams }: OrdersListPageProps) {
   const params = (await searchParams) ?? {};
   const orders = await listAdminOrders();
+  type AdminOrderRow = (typeof orders)[number];
   const term = params.q?.trim().toLowerCase() ?? "";
   const paymentFilter = params.payment ?? "ALL";
   const stageFilter = params.stage ?? "ALL";
   const sourceFilter = params.source ?? "ALL";
 
-  const filteredOrders = orders.filter((order) => {
+  const filteredOrders = orders.filter((order: AdminOrderRow) => {
     if (paymentFilter !== "ALL" && order.payment_status !== paymentFilter) {
       return false;
     }
@@ -127,7 +128,7 @@ export default async function AdminOrdersListPage({ searchParams }: OrdersListPa
                 </tr>
               </thead>
               <tbody>
-                {filteredOrders.map((order) => (
+                {filteredOrders.map((order: AdminOrderRow) => (
                   <tr key={order.id}>
                     <td>
                       <Link href={`/admin/orders/${order.id}`} className="admin-table-link">

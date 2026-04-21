@@ -27,6 +27,7 @@ export default async function AdminHomePage() {
       fulfillment_status: true,
     },
   });
+  type RecentOrder = (typeof recentOrders)[number];
 
   return (
     <>
@@ -83,7 +84,7 @@ export default async function AdminHomePage() {
             </Link>
           </div>
           <div className="admin-list-rows">
-            {recentOrders.map((order) => (
+            {recentOrders.map((order: RecentOrder) => (
               <Link key={order.id} href={`/admin/orders/${order.id}`} className="admin-list-row">
                 <div>
                   <strong>{order.reference}</strong>

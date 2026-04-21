@@ -30,10 +30,11 @@ export default async function AdminPaymentsListPage({ searchParams }: PaymentsLi
       created_at: true,
     },
   });
+  type PaymentListOrder = (typeof orders)[number];
 
   const term = params.q?.trim().toLowerCase() ?? "";
   const paymentFilter = params.payment ?? "ALL";
-  const filteredOrders = orders.filter((order) => {
+  const filteredOrders = orders.filter((order: PaymentListOrder) => {
     if (paymentFilter !== "ALL" && order.payment_status !== paymentFilter) {
       return false;
     }
@@ -103,7 +104,7 @@ export default async function AdminPaymentsListPage({ searchParams }: PaymentsLi
                 </tr>
               </thead>
               <tbody>
-                {filteredOrders.map((order) => (
+                {filteredOrders.map((order: PaymentListOrder) => (
                   <tr key={order.id}>
                     <td>
                       <Link href={`/admin/payments/${order.id}`} className="admin-table-link">
