@@ -1,6 +1,6 @@
 # Digital Inventory & Order Management System
 
-A complete inventory tracking, order management, and invoicing system built with Next.js, PostgreSQL, and Paystack.
+A complete inventory tracking, order management, and invoicing system built with Next.js and PostgreSQL, with WhatsApp-first checkout and optional Paystack later.
 
 ## Quick Start
 
@@ -47,6 +47,12 @@ A complete inventory tracking, order management, and invoicing system built with
    # Admin dashboard: http://localhost:3000/admin/inventory
    ```
 
+7. **Local admin login:**
+   ```text
+   Email: admin@example.com
+   Password: Password123
+   ```
+
 ### Common Commands
 
 | Command | Purpose |
@@ -58,6 +64,17 @@ A complete inventory tracking, order management, and invoicing system built with
 | `npm run dev` | Start Next.js dev server |
 | `npm run test` | Run tests (Phase 1+) |
 | `npm run build` | Build for production |
+| `npm run release:check` | Show local release-readiness warnings |
+| `npm run release:check:prod` | Fail if production env requirements are missing |
+| `npm run db:migrate:deploy` | Apply Prisma migrations to the target production database |
+
+### Admin Workflows
+
+- Inventory management: `/admin/inventory`
+- Orders and status updates: `/admin/orders`
+- Outstanding payment tracking: `/admin/payments`
+
+An order is still unpaid when its payment status is `Waiting`.
 
 ### Database Access
 
@@ -81,7 +98,21 @@ Deployment is automated via GitHub Actions:
 
 **Environment Variables (set in Vercel Dashboard):**
 - `DATABASE_URL` → Supabase connection string
-- `PAYSTACK_SECRET_KEY` → Live Paystack key (Phase 2)
+- `ADMIN_AUTH_SECRET` → Strong random secret for admin sessions
+- `BUSINESS_WHATSAPP_NUMBER` → Business WhatsApp number used for customer checkout handoff
+- `PAYSTACK_SECRET_KEY` → Live Paystack key (when enabled)
+- `PAYSTACK_PUBLIC_KEY` → Live Paystack public key (when enabled)
+
+**Release Checklist:**
+1. Set `DATABASE_URL` in Vercel
+2. Set `ADMIN_AUTH_SECRET` in Vercel
+3. Set `BUSINESS_WHATSAPP_NUMBER` in Vercel
+4. Add Paystack keys when you are ready to enable live payment verification
+5. Run `npm run build`
+6. Run `npm run release:check:prod`
+7. Verify `/api/health` returns `ok` or expected warnings after deployment
+
+See [DEPLOYMENT.md](/Users/subomi/Desktop/SSG-Resources/DEPLOYMENT.md:1) for the exact deployment sequence.
 
 ### Troubleshooting
 

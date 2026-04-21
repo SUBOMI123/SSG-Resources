@@ -1,0 +1,128 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum InventoryChangeReason {
+  MANUAL_UPDATE
+  ORDER_PLACED
+  ORDER_CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  PARTIAL
+  PAID
+  FAILED
+}
+
+enum FulfillmentStatus {
+  PENDING
+  CONFIRMED
+  DELIVERED
+}
+
+enum OrderSource {
+  WEB
+  MANUAL
+}
+
+model Product {
+  id                String             @id @default(cuid())
+  name              String             @unique
+  sku               String             @unique
+  slug              String             @unique
+  description       String?
+  unit_price        Float
+  is_active         Boolean            @default(true)
+  quantity_on_hand  Int                @default(0)
+  reserved          Int                @default(0)
+  available         Int                @default(0)
+  created_at        DateTime           @default(now())
+  updated_at        DateTime           @updatedAt
+  inventory_history InventoryHistory[]
+  order_items       OrderItem[]
+}
+
+model InventoryHistory {
+  id                String                @id @default(cuid())
+  product_id        String
+  product           Product               @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  previous_quantity Int
+  new_quantity      Int
+  change_reason     InventoryChangeReason
+  changed_by        String
+  created_at        DateTime              @default(now())
+
+  @@index([product_id])
+}
+
+model Order {
+  id                 String            @id @default(cuid())
+  reference          String            @unique
+  source             OrderSource       @default(WEB)
+  assigned_to        String?
+  customer_name      String
+  customer_email     String
+  customer_phone     String
+  delivery_address   String
+  notes              String?
+  subtotal           Float
+  total              Float
+  amount_paid        Float             @default(0)
+  balance_due        Float
+  paystack_reference String?
+  paystack_access_code String?
+  payment_url        String?
+  payment_status     PaymentStatus     @default(PENDING)
+  fulfillment_status FulfillmentStatus @default(PENDING)
+  paid_at            DateTime?
+  created_at         DateTime          @default(now())
+  updated_at         DateTime          @updatedAt
+  items              OrderItem[]
+  payments           OrderPayment[]
+}
+
+model AdminUser {
+  id            String   @id @default(cuid())
+  name          String
+  email         String   @unique
+  password_hash String
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+}
+
+model OrderItem {
+  id            String   @id @default(cuid())
+  order_id      String
+  product_id    String?
+  product_name  String
+  product_sku   String
+  product_slug  String
+  unit_price    Float
+  quantity      Int
+  line_total    Float
+  created_at    DateTime @default(now())
+  order         Order    @relation(fields: [order_id], references: [id], onDelete: Cascade)
+  product       Product? @relation(fields: [product_id], references: [id], onDelete: SetNull)
+
+  @@index([order_id])
+  @@index([product_id])
+}
+
+model OrderPayment {
+  id          String   @id @default(cuid())
+  order_id     String
+  amount      Float
+  note        String?
+  recorded_by String
+  received_at DateTime @default(now())
+  created_at  DateTime @default(now())
+  order       Order    @relation(fields: [order_id], references: [id], onDelete: Cascade)
+
+  @@index([order_id])
+  @@index([received_at])
+}

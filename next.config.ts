@@ -3,9 +3,6 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   serverExternalPackages: ['prisma', '@prisma/client'],
-  experimental: {
-    optimizePackageImports: ['@prisma/client'],
-  },
   images: {
     domains: ['localhost'],
   },

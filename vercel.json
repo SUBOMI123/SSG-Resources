@@ -1,9 +1,5 @@
 {
   "buildCommand": "npm run build",
-  "env": {
-    "DATABASE_URL": "@database_url",
-    "NODE_ENV": "production"
-  },
   "git": {
     "deploymentEnabled": {
       "main": true
